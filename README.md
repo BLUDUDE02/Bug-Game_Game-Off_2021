@@ -1,2 +1,2 @@
 # Bug-Game_Game-Off_2021
- Bug Game Repository
+ Repository for WhereWhatWhenWhyHow's Game-Off 2021 submission!

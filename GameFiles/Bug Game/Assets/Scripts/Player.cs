@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             if(transform.position == currentWaypoint)
             {
                 targetIndex++;
-                if(targetIndex >= path.Length)
+                if (targetIndex >= path.Length)
                 {
                     animator.ResetTrigger("IsWalking");
                     yield break;

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
         int targetIndex = 0;
 
-        while (true)
+        while(true)
         {
             if(transform.position == currentWaypoint)
             {

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject clickSprite;
     public float speed = 5f;
+    public Grid grid;
     Vector3[] path;
     Vector3 moveDirection;
     public Animator animator;
@@ -18,6 +20,9 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
+                Node targetNode = grid.GetNodeFromWorldPos(hit.point);
+                clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, targetNode.worldPosition.y + 0.01f, targetNode.worldPosition.z);
+                clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
                 Debug.Log("Click Pos: " + hit.point);
                 animator.SetTrigger("IsWalking");
             }

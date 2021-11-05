@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float speed = 0.005f;
+    public float speed = 5f;
     Vector3[] path;
     Vector3 moveDirection;
     public Animator animator;

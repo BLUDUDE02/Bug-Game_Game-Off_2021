@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     float speed = 0.005f;
     Vector3[] path;
     Vector3 moveDirection;
-    int targetIndex = 0;
+    public Animator animator;
 
     private void Update()
     {
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
             {
                 PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
                 Debug.Log("Click Pos: " + hit.point);
+                animator.SetTrigger("IsWalking");
             }
         }
     }
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
                 targetIndex++;
                 if(targetIndex >= path.Length)
                 {
+                    animator.ResetTrigger("IsWalking");
                     yield break;
                 }
                 currentWaypoint = path[targetIndex];

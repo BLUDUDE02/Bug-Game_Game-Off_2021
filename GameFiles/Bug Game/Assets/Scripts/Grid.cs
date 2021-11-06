@@ -36,6 +36,11 @@ public class Grid : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        CreateGrid();
+    }
+
     public Node GetNodeFromWorldPos(Vector3 worldPosition)
     {
         float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;

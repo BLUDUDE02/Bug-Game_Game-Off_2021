@@ -60,6 +60,8 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ButtonControl.cs" />
     <Compile Include="Assets\Scripts\MoveSpire.cs" />
+    <Compile Include="Assets\Scripts\Zoom.cs" />
+    <Compile Include="Assets\Scripts\Exit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

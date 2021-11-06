@@ -59,7 +59,8 @@ public class Player : MonoBehaviour
             }
 
             moveDirection = Vector3.MoveTowards(transform.position, currentWaypoint, speed);
-            transform.position = moveDirection;
+            Vector3 Movement = new Vector3(moveDirection.x, transform.position.y, moveDirection.z);
+            transform.position = Movement;
             transform.LookAt(currentWaypoint);
             yield return null;
         }

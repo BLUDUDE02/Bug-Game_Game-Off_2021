@@ -58,6 +58,8 @@
     <Compile Include="Assets\Scripts\PathFinding.cs" />
     <Compile Include="Assets\Scripts\PathRequestManager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\ButtonControl.cs" />
+    <Compile Include="Assets\Scripts\MoveSpire.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
             {
                 PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
                 Node targetNode = grid.GetNodeFromWorldPos(hit.point);
-                clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, targetNode.worldPosition.y + 0.01f, targetNode.worldPosition.z);
+                clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, hit.point.y +0.1f, targetNode.worldPosition.z);
                 clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
                 Debug.Log("Click Pos: " + hit.point);               
             }

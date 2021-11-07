@@ -8,7 +8,7 @@ public class MechanismHandler : MonoBehaviour
     public Exit trigger;
     bool B1 = false, B2 = false, B3 = false, B4 = false, Exit = false;
     public Animator anim;
-    float speed = 0.15f;
+    float speed = 0.2f;
     Vector3 Movement;
 
     private void Update()

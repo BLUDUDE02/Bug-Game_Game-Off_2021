@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     Vector3[] path;
     Vector3 moveDirection;
     public Animator animator;
+    public Exit exit;
+    bool exited = false;
 
     private void Update()
     {
@@ -25,6 +27,11 @@ public class Player : MonoBehaviour
                 clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
                 Debug.Log("Click Pos: " + hit.point);               
             }
+        }
+        if (exit.triggered == true && exited == false)
+        {
+            animator.Play("Exit");
+            exited = true;
         }
     }
 

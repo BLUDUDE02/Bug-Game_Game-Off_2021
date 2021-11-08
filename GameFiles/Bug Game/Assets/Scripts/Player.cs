@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         }
         if (exit.triggered == true && exited == false)
         {
+            Debug.Log("Somethings Happening");
             animator.Play("Exit");
             exited = true;
         }

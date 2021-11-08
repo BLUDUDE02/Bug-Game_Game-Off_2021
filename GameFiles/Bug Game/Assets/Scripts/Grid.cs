@@ -7,6 +7,9 @@ public class Grid : MonoBehaviour
     public LayerMask unWalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
+    public Color Path = new Color(0, 1, 0, 0.2f);
+    public Color Walkable = new Color(1, 1, 1, 0.2f);
+    public Color UnWalkable = new Color(1, 0, 0, 0.2f);
     Node[,] grid;
 
     float nodeDiameter;
@@ -86,9 +89,6 @@ public class Grid : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Color Walkable = new Color(1, 1, 1, 0.2f);
-        Color UnWalkable = new Color(1, 0, 0, 0.2f);
-        Color Path = new Color(0, 1, 0, 0.2f);
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
         if(grid != null)

@@ -8,7 +8,7 @@ public class MechanismHandler : MonoBehaviour
     public Exit trigger;
     bool B1 = false, B2 = false, B3 = false, B4 = false, Exit = false;
     public Animator anim;
-    float speed = 0.2f;
+    float speed = 0.05f;
     Vector3 Movement;
 
     private void Update()
@@ -78,7 +78,7 @@ public class MechanismHandler : MonoBehaviour
                 yield break;
             }
 
-            Movement = Vector3.MoveTowards(transform.position, Goal, speed/4);
+            Movement = Vector3.MoveTowards(transform.position, Goal, ((speed+0.09f)/4));
             transform.position = Movement;
             yield return null;
         }

@@ -19,6 +19,7 @@ public class ButtonControl : MonoBehaviour
             if(isButtonClicked == false)
             {
                 isButtonClicked = true;
+                anim.Play("ButtonDown");
                 Debug.Log("Button Pressed!");              
             }
             

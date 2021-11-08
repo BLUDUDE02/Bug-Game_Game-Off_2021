@@ -6,13 +6,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject clickSprite;
-    public float speed = 5f;
+    public float speed = 15f;
     public Grid grid;
     Vector3[] path;
     Vector3 moveDirection;
     public Animator animator;
     public Exit exit;
     bool exited = false;
+    int targetIndex;
 
     private void Update()
     {
@@ -67,10 +68,31 @@ public class Player : MonoBehaviour
             }
 
             moveDirection = Vector3.MoveTowards(transform.position, currentWaypoint, speed);
-            Vector3 Movement = new Vector3(moveDirection.x, transform.position.y, moveDirection.z);
-            transform.position = Movement;
+            //Vector3 Movement = new Vector3(moveDirection.x, transform.position.y, moveDirection.z);
+            transform.position = moveDirection;
             transform.LookAt(currentWaypoint);
             yield return null;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(path != null)
+        {
+            for(int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawCube(path[i], Vector3.one);
+
+                if(i == targetIndex)
+                {
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+                else
+                {
+                    Gizmos.DrawLine(path[i-1], path[i]);
+                }
+            }
         }
     }
 }

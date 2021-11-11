@@ -22,11 +22,14 @@ public class Player : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000))
             {
-                PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
-                Node targetNode = grid.GetNodeFromWorldPos(hit.point);
-                clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, hit.point.y +0.1f, targetNode.worldPosition.z);
-                clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
-                Debug.Log("Click Pos: " + hit.point);               
+                if(!hit.transform.gameObject.CompareTag("Rotator"))
+                {
+                    PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
+                    Node targetNode = grid.GetNodeFromWorldPos(hit.point);
+                    clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, hit.point.y + 0.1f, targetNode.worldPosition.z);
+                    clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
+                    Debug.Log("Click Pos: " + hit.point);
+                }             
             }
         }
         if (exit.triggered == true && exited == false)

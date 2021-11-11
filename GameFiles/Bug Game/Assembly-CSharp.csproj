@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.21f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PauseMenuHandler.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Zoom.cs" />
     <Compile Include="Assets\Scripts\Bushes.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Assets\Scripts\MechanismHandler.cs" />
     <Compile Include="Assets\Scripts\ButtonControl.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\PauseMenuHandler.cs" />
+    <Compile Include="Assets\Scripts\rotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

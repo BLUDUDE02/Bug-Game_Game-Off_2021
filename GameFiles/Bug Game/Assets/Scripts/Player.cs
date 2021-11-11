@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Exit exit;
     bool exited = false;
     int targetIndex;
+    ButtonControl obj = null;
 
     private void Update()
     {
@@ -22,7 +23,12 @@ public class Player : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000))
             {
-                if(!hit.transform.gameObject.CompareTag("Rotator"))
+                if(hit.transform.gameObject.CompareTag("Button"))
+                {
+                    obj = hit.transform.gameObject.GetComponent<ButtonControl>();
+                    Debug.Log(obj.ButtonisActive);
+                }
+                if (!hit.transform.gameObject.CompareTag("Rotator"))
                 {
                     PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
                     Node targetNode = grid.GetNodeFromWorldPos(hit.point);

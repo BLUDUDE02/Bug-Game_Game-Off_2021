@@ -6,17 +6,22 @@ public class ButtonControl : MonoBehaviour
 {
     Animator anim;
     public bool isButtonClicked = false;
+    public bool ButtonisActive = true;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        if(transform.GetComponentInParent<ActivateButton>())
+        {
+            ButtonisActive = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if(isButtonClicked == false)
+            if(isButtonClicked == false && ButtonisActive)
             {
                 isButtonClicked = true;
                 anim.Play("ButtonDown");

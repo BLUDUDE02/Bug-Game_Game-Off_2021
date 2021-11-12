@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     bool exited = false;
     int targetIndex;
     ButtonControl obj = null;
+    public bool canMove = true;
+    public ActivateButton activator;
 
     private void Update()
     {
@@ -23,26 +25,27 @@ public class Player : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000))
             {
-                if(hit.transform.gameObject.CompareTag("Button"))
+                if (hit.transform.gameObject.CompareTag("Button") && activator.canRotate)
                 {
                     obj = hit.transform.gameObject.GetComponent<ButtonControl>();
                     Debug.Log(obj.ButtonisActive);
+                    activator.Rotate();
                 }
-                if (!hit.transform.gameObject.CompareTag("Rotator"))
+                else if (!hit.transform.gameObject.CompareTag("Rotator"))
                 {
                     PathRequestManager.RequestPath(transform.position, hit.point, OnPathFound);
                     Node targetNode = grid.GetNodeFromWorldPos(hit.point);
                     clickSprite.transform.position = new Vector3(targetNode.worldPosition.x, hit.point.y + 0.1f, targetNode.worldPosition.z);
                     clickSprite.GetComponent<Animator>().Play("Click", -1, 0f);
                     Debug.Log("Click Pos: " + hit.point);
-                }             
+                }
             }
-        }
-        if (exit.triggered == true && exited == false)
-        {
-            Debug.Log("Somethings Happening");
-            animator.Play("Exit");
-            exited = true;
+            if (exit.triggered == true && exited == false)
+            {
+                Debug.Log("Somethings Happening");
+                animator.Play("Exit");
+                exited = true;
+            }
         }
     }
 

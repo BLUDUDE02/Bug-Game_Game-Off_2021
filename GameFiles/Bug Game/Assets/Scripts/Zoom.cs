@@ -9,6 +9,7 @@ public class Zoom : MonoBehaviour
     public float initialFOV;
     public float zoomInFOV;
     public float smooth;
+    public bool shouldZoom;
 
     //private variables for script mod
     private float currentFOV;
@@ -28,7 +29,7 @@ public class Zoom : MonoBehaviour
     { 
         currentFOV = Camera.main.orthographicSize;
 
-        if (exit.triggered == true)
+        if (exit.triggered == true && shouldZoom)
         {
             ChangeFOV();
             Debug.Log("EXIT!");

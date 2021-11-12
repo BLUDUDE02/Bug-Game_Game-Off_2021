@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseMenuHandler : MonoBehaviour
 {
     public Button Menu, Exit;
-    Animator anim1, anim2;
+    Animator anim1, anim2, anim3, anim4, anim5, anim6, anim7, anim8;
     bool isClicked = false;
     
     // Start is called before the first frame update
